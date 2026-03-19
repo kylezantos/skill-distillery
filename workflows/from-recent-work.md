@@ -84,7 +84,7 @@ Tools Used:
 
 ---
 
-## Step 3-7: Convergent Process
+## Step 3-8: Convergent Process
 
 From here, follow the same process as the source-material workflow:
 
@@ -94,9 +94,11 @@ From here, follow the same process as the source-material workflow:
 
 **Step 5: Build** — Create all files following official spec. See `workflows/from-source-material.md` Step 5.
 
-**Step 6: Validate** — Run quality checklist. See `workflows/from-source-material.md` Step 6.
+**Step 6: Gotchas Review** — Ensure gotchas section is populated with real Claude failure modes. See `workflows/from-source-material.md` Step 6.
 
-**Step 7: Cross-Agent Compatibility Review** — Evaluate cross-agent support. See `workflows/from-source-material.md` Step 7.
+**Step 7: Validate** — Run quality checklist (gotchas first). See `workflows/from-source-material.md` Step 7.
+
+**Step 8: Cross-Agent Compatibility Review** — Evaluate cross-agent support. See `workflows/from-source-material.md` Step 8.
 
 ---
 
@@ -109,5 +111,6 @@ This workflow is complete when:
 - [ ] Strategy decisions made interactively
 - [ ] Architecture proposed and approved
 - [ ] All files created following official spec
+- [ ] Gotchas section reviewed and populated
 - [ ] Quality checklist passed
 - [ ] Cross-agent compatibility reviewed

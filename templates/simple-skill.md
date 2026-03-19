@@ -78,6 +78,16 @@ If the user specifies a mode, go directly to it. If not, ask:
 
 ---
 
+## Gotchas
+
+Common failure points — where Claude gets this wrong:
+
+- **Don't {{X}}** because {{Y}}. Instead, {{correct approach}}.
+- **Don't {{X}}** because {{Y}}. Instead, {{correct approach}}.
+- **Don't {{X}}** because {{Y}}. Instead, {{correct approach}}.
+
+---
+
 ## Working With Incomplete Information
 
 {{How the skill adapts when user doesn't have everything.}}

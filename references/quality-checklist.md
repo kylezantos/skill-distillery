@@ -2,12 +2,23 @@
 
 Run through this checklist after building or auditing a skill. Items are grouped by category and ordered by impact.
 
+## Gotchas (Highest Priority)
+
+The most valuable content in any skill. Gotchas document where Claude typically fails with this domain. Check these first.
+
+- [ ] Dedicated `## Gotchas` section exists in SKILL.md or a loaded reference
+- [ ] Each gotcha uses "don't do X because Y" structure (not vague warnings)
+- [ ] Gotchas come from real Claude failure modes, not theoretical anti-patterns
+- [ ] Gotchas are specific and actionable (Claude can check its own work against them)
+- [ ] Common misinterpretations of the domain are called out
+- [ ] If the skill involves external APIs/tools, version-specific pitfalls are documented
+
 ## Frontmatter
 
 - [ ] Valid YAML between `---` delimiters
 - [ ] `name` is lowercase-with-hyphens, matches directory name, max 64 chars
 - [ ] `description` is specific, includes trigger keywords, max 1024 chars
-- [ ] `description` says what it does AND when to use it
+- [ ] `description` framed as trigger conditions ("Use when..."), not a summary of contents
 - [ ] `description` written in third person ("This skill..." or "Use when...")
 - [ ] `disable-model-invocation: true` if skill has side effects (deploy, commit, send)
 - [ ] `allowed-tools` set if specific tools are needed
@@ -32,7 +43,6 @@ Run through this checklist after building or auditing a skill. Items are grouped
 - [ ] Consistent terminology throughout (not mixing synonyms)
 - [ ] No time-sensitive information without versioning
 - [ ] Default recommendation with escape hatch (not a menu of equivalent options)
-- [ ] Anti-patterns documented (what NOT to do)
 
 ## Interactivity
 

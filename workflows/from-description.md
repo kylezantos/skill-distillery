@@ -59,9 +59,31 @@ Use AskUserQuestion if available, plain text otherwise:
    - "I'd type /skill-name and then..."
    - Concrete scenario, not abstract description
 
+### Identify Skill Type
+
+Based on the user's answers, identify which type of skill they're building. This shapes architecture decisions downstream.
+
+| Type | Description | Architecture Implications |
+|------|-------------|--------------------------|
+| **Library/API Reference** | Correct usage of libraries, CLIs, SDKs with code snippets and pitfalls | Heavy on gotchas and code examples; often simple structure |
+| **Product Verification** | Test and verification instructions, often paired with external tools | Scripts directory important; may need `allowed-tools` for test runners |
+| **Data Fetching & Analysis** | Connect to data/monitoring infrastructure with workflow instructions | Needs credential handling guidance; config.json for dashboard IDs |
+| **Business Process** | Automate repetitive workflows into single commands | Often simple instructions but complex dependencies; log files for consistency |
+| **Code Scaffolding** | Generate boilerplate combining scripts with natural language requirements | Templates directory essential; scripts for deterministic generation |
+| **Code Quality & Review** | Enforce standards, facilitate review, run via hooks or CI | Often uses `hooks` frontmatter; may run automatically, not just on invocation |
+| **CI/CD & Deployment** | Deploy, monitor PRs, manage rollouts | Needs `disable-model-invocation: true`; safety hooks for destructive operations |
+| **Runbook** | Transform symptoms into structured investigation reports | Router pattern common (different symptoms → different procedures) |
+| **Infrastructure Operations** | Routine maintenance and operational procedures | Needs guardrails for destructive actions; on-demand hooks for safety |
+
+Present to user:
+
+> Based on what you've described, this sounds like a **[type]** skill. Does that match your intent?
+
+This doesn't lock anything in — it's a lens that helps make better architecture choices later.
+
 ### Decision Gate
 
-After initial questions:
+After initial questions and type identification:
 
 > Ready to proceed with building, or would you like to explore more?
 
@@ -84,7 +106,7 @@ Follow the Research Protocol from SKILL.md:
 
 ---
 
-## Step 3-7: Convergent Process
+## Step 3-8: Convergent Process
 
 From here, follow the same process as the source-material workflow:
 
@@ -94,9 +116,11 @@ From here, follow the same process as the source-material workflow:
 
 **Step 5: Build** — Create all files following official spec. See `workflows/from-source-material.md` Step 5.
 
-**Step 6: Validate** — Run quality checklist. See `workflows/from-source-material.md` Step 6.
+**Step 6: Gotchas Review** — Ensure gotchas section is populated with real Claude failure modes. See `workflows/from-source-material.md` Step 6.
 
-**Step 7: Cross-Agent Compatibility Review** — Evaluate cross-agent support. See `workflows/from-source-material.md` Step 7.
+**Step 7: Validate** — Run quality checklist (gotchas first). See `workflows/from-source-material.md` Step 7.
+
+**Step 8: Cross-Agent Compatibility Review** — Evaluate cross-agent support. See `workflows/from-source-material.md` Step 8.
 
 ---
 
@@ -108,5 +132,6 @@ This workflow is complete when:
 - [ ] Strategy decisions made interactively
 - [ ] Architecture proposed and approved
 - [ ] All files created following official spec
+- [ ] Gotchas section reviewed and populated
 - [ ] Quality checklist passed
 - [ ] Cross-agent compatibility reviewed

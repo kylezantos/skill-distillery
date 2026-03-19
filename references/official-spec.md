@@ -43,6 +43,7 @@ All fields are optional. Only `description` is recommended.
 | `model` | inherited | Force a specific model: `haiku`, `sonnet`, `opus` |
 | `context` | — | Set `fork` to run in isolated subagent context. |
 | `agent` | — | Subagent type when `context: fork`: `Explore`, `Plan`, `general-purpose`, or custom agent name. |
+| `hooks` | — | Hooks scoped to this skill's lifecycle. See Hooks in Skills below. |
 
 ## Invocation Control
 
@@ -75,6 +76,8 @@ Enterprise (highest) → Personal → Project → Plugin (lowest)
 | `$ARGUMENTS` | All arguments passed when invoking |
 | `$ARGUMENTS[N]` or `$N` | Specific argument by 0-based index |
 | `${CLAUDE_SESSION_ID}` | Current session ID |
+| `${CLAUDE_SKILL_DIR}` | Directory containing the skill's SKILL.md. Use to reference bundled scripts/files regardless of working directory. |
+| `${CLAUDE_PLUGIN_DATA}` | Stable folder for data that persists beyond skill upgrades. Use for logs, config, cached results, or any data the skill accumulates over time. |
 
 If `$ARGUMENTS` is not present in the skill content, arguments are appended automatically.
 
@@ -126,16 +129,40 @@ Research $ARGUMENTS thoroughly...
 
 The skill content becomes the subagent's prompt. No access to conversation history.
 
+## Hooks in Skills
+
+Skills can define lifecycle hooks via the `hooks` frontmatter field. These run shell commands at specific points during skill execution.
+
+**Use cases:**
+- **Safety guardrails** — Block destructive commands (`rm -rf`, `DROP TABLE`, `force-push`) while the skill is active
+- **Directory constraints** — Restrict edits to specific paths during the skill's execution
+- **Logging** — Track skill invocations for usage measurement
+- **Setup/teardown** — Run setup scripts when the skill starts, cleanup when it ends
+
+Hooks defined in a skill are scoped to that skill's lifecycle only — they don't affect the rest of the session.
+
+## Persistent Data Storage
+
+Skills that need to store data across invocations can use `${CLAUDE_PLUGIN_DATA}` — a stable folder that persists beyond skill upgrades. Store:
+- Text logs (gotchas captured during usage, run history)
+- JSON config (user preferences, cached API responses)
+- SQLite databases (for structured data accumulation)
+
+This is distinct from the skill directory itself, which may be overwritten on updates.
+
 ## Writing Effective Descriptions
 
-Write in third person. Include both what it does and when to use it:
+**Frame descriptions as trigger conditions, not summaries.** Claude scans descriptions to decide when to invoke a skill. Write them as "when should Claude reach for this?" not "what does this skill contain?"
 
 ```yaml
-# Good — specific with trigger keywords
+# Good — trigger-oriented, tells Claude WHEN to activate
 description: Extract text and tables from PDF files, fill forms, merge documents. Use when working with PDF files or when the user mentions PDFs, forms, or document extraction.
 
-# Bad — too vague
+# Bad — summary that doesn't tell Claude when to activate
 description: Helps with documents
+
+# Bad — describes contents instead of triggers
+description: A comprehensive guide to PDF manipulation with examples and best practices
 ```
 
 ## Key Rules

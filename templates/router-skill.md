@@ -140,10 +140,13 @@ This workflow is complete when:
 
 {{More operational content.}}
 
-## Anti-Patterns
+## Gotchas
 
-- **{{Common mistake}}** — {{Why it fails and what to do instead}}
-- **{{Another mistake}}** — {{Why it fails and what to do instead}}
+Common failure points — where Claude gets this wrong:
+
+- **Don't {{X}}** because {{Y}}. Instead, {{correct approach}}.
+- **Don't {{X}}** because {{Y}}. Instead, {{correct approach}}.
+- **Don't {{X}}** because {{Y}}. Instead, {{correct approach}}.
 ```
 
 ## Customization Notes

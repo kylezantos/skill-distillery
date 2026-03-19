@@ -50,6 +50,8 @@ These apply to everything skill-distillery does:
 
 7. **Tailored to the user's specific goal** — Not generic skill-making advice. Every decision adapts to what this particular user is building for this particular purpose.
 
+8. **Gotchas are the highest-signal content** — The most valuable part of any skill is where Claude typically fails. Every skill should have a dedicated gotchas section documenting specific failure points with "don't do X because Y" structure. Gotchas come from anticipating Claude's failure modes, not theoretical anti-patterns.
+
 ---
 
 ## Research Protocol
@@ -146,7 +148,7 @@ All supporting knowledge in `references/`:
 | [from-source-material.md](workflows/from-source-material.md) | Article/talk/framework → skill (flagship workflow) |
 | [from-description.md](workflows/from-description.md) | Blank slate → brainstorm → skill |
 | [from-recent-work.md](workflows/from-recent-work.md) | Capture AI process as reusable skill |
-| [audit-existing-skill.md](workflows/audit-existing-skill.md) | Full-framework audit with 5 evaluation lenses |
+| [audit-existing-skill.md](workflows/audit-existing-skill.md) | Full-framework audit with 6 evaluation lenses |
 | [add-component.md](workflows/add-component.md) | Add reference/workflow/script/template to existing skill |
 
 ## Templates

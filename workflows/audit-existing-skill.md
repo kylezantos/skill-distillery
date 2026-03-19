@@ -1,6 +1,6 @@
 # Workflow: Audit Existing Skill
 
-Run an existing skill through the full skill-distillery framework. Five evaluation lenses, rated assessment, prioritized improvements.
+Run an existing skill through the full skill-distillery framework. Six evaluation lenses (gotchas first), rated assessment, prioritized improvements.
 
 ## Required Reading
 
@@ -62,7 +62,26 @@ This calibrates the audit tone: your own skill gets constructive suggestions, an
 
 ---
 
-## Step 2: Synthesis Quality Review
+## Step 2: Gotchas Review (Highest Priority)
+
+The most valuable content in any skill. Evaluate this first.
+
+**Questions to assess:**
+- Does the skill have a dedicated gotchas section?
+- Are gotchas structured as "don't do X because Y" (not vague warnings)?
+- Do they target real Claude failure modes for this domain?
+- Are they specific enough that Claude can check its own work against them?
+- Are common domain misinterpretations called out?
+- For skills involving external tools/APIs: are version-specific pitfalls documented?
+
+**Rating:**
+- **Strong** — 5+ specific, actionable gotchas targeting real Claude failure points
+- **Present but weak** — Has some gotchas/anti-patterns but they're vague or theoretical
+- **Missing** — No gotchas section or only generic advice
+
+---
+
+## Step 3: Synthesis Quality Review
 
 Evaluate the skill's intellectual foundation.
 
@@ -81,7 +100,7 @@ Evaluate the skill's intellectual foundation.
 
 ---
 
-## Step 3: Architecture Review
+## Step 4: Architecture Review
 
 Evaluate the file structure.
 
@@ -100,7 +119,7 @@ Evaluate the file structure.
 
 ---
 
-## Step 4: Interactive Design Review
+## Step 5: Interactive Design Review
 
 Evaluate how the skill handles user interaction.
 
@@ -122,7 +141,7 @@ Evaluate how the skill handles user interaction.
 
 ---
 
-## Step 5: Spec Compliance Review
+## Step 6: Spec Compliance Review
 
 Evaluate against the official specification.
 
@@ -145,7 +164,7 @@ Evaluate against the official specification.
 
 ---
 
-## Step 6: Cross-Agent Compatibility Review
+## Step 7: Cross-Agent Compatibility Review
 
 Evaluate portability across AI coding agents.
 
@@ -164,7 +183,7 @@ Evaluate portability across AI coding agents.
 
 ---
 
-## Step 7: Present Full Assessment
+## Step 8: Present Full Assessment
 
 Format the results:
 
@@ -176,6 +195,7 @@ Files: [count] | Lines: [total] | Structure: [type]
 ┌─────────────────────────────┬────────────────────┐
 │ Lens                        │ Rating             │
 ├─────────────────────────────┼────────────────────┤
+│ Gotchas                     │ [rating]           │
 │ Synthesis Quality           │ [rating]           │
 │ Architecture                │ [rating]           │
 │ Interactive Design          │ [rating]           │
@@ -205,7 +225,7 @@ PRIORITY IMPROVEMENTS:
 
 ---
 
-## Step 8: Implement Improvements
+## Step 9: Implement Improvements
 
 Present improvements as a selectable list.
 
@@ -227,7 +247,7 @@ Otherwise: "Which improvements would you like me to implement? List the numbers.
 
 ---
 
-## Step 9: Final Report
+## Step 10: Final Report
 
 After implementing selected improvements:
 
@@ -253,7 +273,7 @@ Remaining Recommendations:
 This workflow is complete when:
 - [ ] All skill files read and inventoried
 - [ ] Audit context understood (user built it, plugin, evaluating)
-- [ ] All 5 lenses evaluated with ratings
+- [ ] All 6 lenses evaluated with ratings (gotchas first)
 - [ ] Prioritized improvements presented
 - [ ] User selected which improvements to implement
 - [ ] Selected improvements implemented and verified

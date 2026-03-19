@@ -45,8 +45,8 @@ What rules-of-thumb does it provide? "If X, do Y. If Z, do A instead."
 ### Context Separation
 Which advice always applies (universal) vs. which depends on the situation (context-dependent)?
 
-### Anti-Patterns
-What does it say NOT to do? What common mistakes does it call out?
+### Gotchas & Anti-Patterns
+What does it say NOT to do? What common mistakes does it call out? Where would Claude specifically be likely to fail when applying this knowledge? Structure each as "don't do X because Y."
 
 ### Success Criteria
 How would you know you're doing this well? What does good output look like?
@@ -69,8 +69,9 @@ Key Heuristics:
 - If [X], then [Y]
 - If [Z], then [A]
 
-Anti-Patterns:
-- [Common mistake] → [Why it fails]
+Gotchas (where Claude will fail):
+- Don't [X] because [Y]
+- Don't [X] because [Y]
 
 Context-Dependent (not universal):
 - [Advice] applies when [condition]
@@ -187,9 +188,29 @@ If decisions arise during build, use AskUserQuestion or ask in plain text. Don't
 
 ---
 
-## Step 6: Validate
+## Step 6: Gotchas Review
 
-Read `references/quality-checklist.md` and run through every item:
+Before validation, explicitly review the skill's gotchas content. This is the highest-signal content in any skill.
+
+**Check:**
+- Does the skill have a dedicated `## Gotchas` section (in SKILL.md or a reference file)?
+- Are there at least 3-5 specific gotchas for non-trivial skills?
+- Does each gotcha use "don't do X because Y" structure?
+- Are gotchas based on real Claude failure modes (not theoretical warnings)?
+
+**If gotchas are thin or missing**, think through:
+1. What would Claude get wrong on first attempt applying this knowledge?
+2. What are the most common misinterpretations of this domain?
+3. What looks correct but is subtly wrong?
+4. What does the source material explicitly warn against?
+
+Add or strengthen gotchas before proceeding to validation.
+
+---
+
+## Step 7: Validate
+
+Read `references/quality-checklist.md` and run through every item (note: gotchas are now the first section):
 
 - Frontmatter valid and complete
 - Description includes trigger keywords
@@ -207,7 +228,7 @@ Present the validation report:
 
 ---
 
-## Step 7: Cross-Agent Compatibility Review
+## Step 8: Cross-Agent Compatibility Review
 
 Read `references/cross-agent-compatibility.md` and evaluate:
 
@@ -233,6 +254,7 @@ This workflow is complete when:
 - [ ] Strategy decisions made interactively
 - [ ] Architecture proposed and approved
 - [ ] All files created following official spec
+- [ ] Gotchas section reviewed and populated with real failure modes
 - [ ] Quality checklist passed
 - [ ] Cross-agent compatibility reviewed
 - [ ] User can invoke the skill and it works as designed
