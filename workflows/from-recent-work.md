@@ -84,7 +84,7 @@ Tools Used:
 
 ---
 
-## Step 3-8: Convergent Process
+## Step 3-9: Convergent Process
 
 From here, follow the same process as the source-material workflow:
 
@@ -100,6 +100,8 @@ From here, follow the same process as the source-material workflow:
 
 **Step 8: Cross-Agent Compatibility Review** — Evaluate cross-agent support. See `workflows/from-source-material.md` Step 8.
 
+**Step 9: Independent Review (Optional)** — Offer fresh-eyes review from an independent sub-agent. See `workflows/from-source-material.md` Step 9.
+
 ---
 
 ## Success Criteria
@@ -114,3 +116,4 @@ This workflow is complete when:
 - [ ] Gotchas section reviewed and populated
 - [ ] Quality checklist passed
 - [ ] Cross-agent compatibility reviewed
+- [ ] Independent review offered (and completed if accepted)

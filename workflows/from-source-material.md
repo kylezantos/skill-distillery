@@ -110,7 +110,7 @@ Otherwise ask: "Is this for personal use, your team, or public distribution?"
 
 "How interactive should this skill be?"
 
-- **Guided** — Discovery phase, multiple questions, wait gates (like dive-club-portfolio-advisor)
+- **Guided** — Discovery phase, multiple questions, wait gates (like design-portfolio-assistant)
 - **Direct** — User provides input, skill executes immediately
 - **Adaptive** — Ask 1-2 clarifying questions, then execute (like language-market-fit)
 
@@ -246,6 +246,62 @@ Present:
 
 ---
 
+## Step 9: Independent Review (Optional)
+
+After validation, offer a fresh-eyes review from an independent sub-agent. This catches blind spots the builder develops from being too close to the work.
+
+> Skill looks good from my end. Want me to get a second opinion? I can spawn an independent review agent that reads the skill cold — no context from our building conversation — and flags anything it catches.
+
+If AskUserQuestion is available:
+- **Yes, get a second opinion** — Spawn review agent for fresh-eyes feedback
+- **No, ship it** — Skill is ready as-is
+
+If the user opts in:
+
+### Spawn the Review Agent
+
+Read `references/independent-review-brief.md` for the full review instructions.
+
+Spawn one sub-agent (Sonnet — fast and sharp enough for review work) with this brief:
+
+> You are an independent reviewer evaluating a freshly built skill. You were NOT involved in building it — that's the point.
+>
+> **Skill to review:** [full path to skill directory]
+>
+> **Your instructions are in:** [path to skill-distillery]/references/independent-review-brief.md — read that first.
+>
+> **Also read these skill-distillery references for evaluation criteria:**
+> - references/synthesis-patterns.md
+> - references/interactive-design-patterns.md
+> - references/architecture-decisions.md
+>
+> Then read the entire skill (all files) and evaluate it according to the review brief. Return structured findings.
+
+### Filter and Present
+
+When the review agent returns findings, **don't just pass them through**. Act as a filter:
+
+For each finding, give your honest assessment:
+
+```
+REVIEW FINDING: [Title]
+Severity: [Critical / Important / Nit]
+Reviewer says: [Their observation]
+My take: [AGREE / DISAGREE / PARTIALLY AGREE] — [Brief rationale from your building context]
+```
+
+Be honest. If the reviewer caught something you missed, say so. If you disagree, explain why — you have context the reviewer doesn't. The user benefits from seeing both perspectives.
+
+After presenting all findings with your assessments:
+
+> These are the reviewer's findings with my take on each. Which ones would you like me to fix?
+
+If AskUserQuestion is available, present fixable items as selectable options. Otherwise ask for numbers.
+
+Implement selected fixes, then confirm what changed.
+
+---
+
 ## Success Criteria
 
 This workflow is complete when:
@@ -257,4 +313,5 @@ This workflow is complete when:
 - [ ] Gotchas section reviewed and populated with real failure modes
 - [ ] Quality checklist passed
 - [ ] Cross-agent compatibility reviewed
+- [ ] Independent review offered (and completed if accepted)
 - [ ] User can invoke the skill and it works as designed
