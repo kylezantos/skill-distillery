@@ -44,7 +44,7 @@ These apply to everything skill-distillery does:
 
 4. **Progressive disclosure** — SKILL.md stays lean (200-300 lines). Reference files contain depth. Load conditionally based on what the user needs.
 
-5. **Opinionated defaults** — Suggest interactive patterns from proven skills (dive-club-portfolio-advisor's discovery phase, language-market-fit's mode detection). The user can override, but the defaults should be good.
+5. **Opinionated defaults** — Suggest interactive patterns from proven skills (design-portfolio-assistant's discovery phase, language-market-fit's mode detection). The user can override, but the defaults should be good.
 
 6. **Research on demand, not by default** — Most skill creation doesn't need research. Trigger it only when external APIs/libraries are involved or the user explicitly asks. See Research Protocol below.
 

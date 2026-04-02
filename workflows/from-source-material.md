@@ -110,7 +110,7 @@ Otherwise ask: "Is this for personal use, your team, or public distribution?"
 
 "How interactive should this skill be?"
 
-- **Guided** — Discovery phase, multiple questions, wait gates (like dive-club-portfolio-advisor)
+- **Guided** — Discovery phase, multiple questions, wait gates (like design-portfolio-assistant)
 - **Direct** — User provides input, skill executes immediately
 - **Adaptive** — Ask 1-2 clarifying questions, then execute (like language-market-fit)
 

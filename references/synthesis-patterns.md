@@ -52,7 +52,7 @@ Mental models are frameworks for thinking, not instructions. Look for:
 - **Matrices** — Two dimensions that create quadrants
 - **Process loops** — Repeating cycles (build → test → refine)
 
-### Example: dive-club-portfolio-advisor
+### Example: design-portfolio-assistant
 
 Source: 16 podcast episodes with design leaders giving portfolio advice.
 
