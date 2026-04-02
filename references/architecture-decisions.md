@@ -123,7 +123,7 @@ references/
 | Skill | Structure | Files | Why it works |
 |-------|-----------|-------|-------------|
 | language-market-fit | Simple + 1 ref | 2 | Two modes but shared principles; reference holds operational tools (kill list, interview framework) |
-| design-portfolio-assistant | Router-like | 12 | 4 advisory lenses loaded conditionally; 2 modes with shared discovery phase |
+| dive-club-portfolio-advisor | Router-like | 12 | 4 advisory lenses loaded conditionally; 2 modes with shared discovery phase |
 | visual-taste | Complex router | 15+ | Multiple designers, nested examples, feedback loops |
 | soleio-design-hiring | Simple | 2 | Two modes but simple enough for one file |
 

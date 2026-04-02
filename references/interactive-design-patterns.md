@@ -1,6 +1,6 @@
 # Interactive Design Patterns
 
-Patterns for making skills interactive, strategic, and responsive to user context. Extracted from high-performing skills (design-portfolio-assistant, language-market-fit, soleio-design-hiring).
+Patterns for making skills interactive, strategic, and responsive to user context. Extracted from high-performing skills (dive-club-portfolio-advisor, language-market-fit, soleio-design-hiring).
 
 ## Pattern 1: Discovery-First Intake
 
