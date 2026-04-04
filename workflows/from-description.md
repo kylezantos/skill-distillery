@@ -106,11 +106,11 @@ Follow the Research Protocol from SKILL.md:
 
 ---
 
-## Step 3-9: Convergent Process
+## Step 3-11: Convergent Process
 
 From here, follow the same process as the source-material workflow:
 
-**Step 3: Skill Strategy** — Interactive decisions about audience, invocation, interactivity, modes, complexity. See `workflows/from-source-material.md` Step 3.
+**Step 3: Skill Strategy** — Interactive decisions about audience, invocation, interactivity, modes, complexity, and target agents. See `workflows/from-source-material.md` Step 3.
 
 **Step 4: Architecture Proposal** — Propose exact file structure with rationale. Wait for approval. See `workflows/from-source-material.md` Step 4.
 
@@ -120,9 +120,13 @@ From here, follow the same process as the source-material workflow:
 
 **Step 7: Validate** — Run quality checklist (gotchas first). See `workflows/from-source-material.md` Step 7.
 
-**Step 8: Cross-Agent Compatibility Review** — Evaluate cross-agent support. See `workflows/from-source-material.md` Step 8.
+**Step 8: Cross-Agent Compatibility Review** — Evaluate cross-agent support, informed by target agent choice. See `workflows/from-source-material.md` Step 8.
 
-**Step 9: Independent Review (Optional)** — Offer fresh-eyes review from an independent sub-agent. See `workflows/from-source-material.md` Step 9.
+**Step 9: Generate README** — Create a publication-ready README.md with install command and skill overview. See `workflows/from-source-material.md` Step 9.
+
+**Step 10: Independent Review (Optional)** — Offer fresh-eyes review from an independent sub-agent. See `workflows/from-source-material.md` Step 10.
+
+**Step 11: Publication (Optional)** — Offer to publish to GitHub for `npx skills add` installation. See `workflows/from-source-material.md` Step 11.
 
 ---
 
@@ -131,10 +135,12 @@ From here, follow the same process as the source-material workflow:
 This workflow is complete when:
 - [ ] User's intent clearly understood (via detailed description or brainstorming)
 - [ ] Research done if external dependencies involved
-- [ ] Strategy decisions made interactively
+- [ ] Strategy decisions made interactively (including target agents)
 - [ ] Architecture proposed and approved
 - [ ] All files created following official spec
 - [ ] Gotchas section reviewed and populated
 - [ ] Quality checklist passed
 - [ ] Cross-agent compatibility reviewed
+- [ ] README.md generated
 - [ ] Independent review offered (and completed if accepted)
+- [ ] Publication offered (and completed if accepted)

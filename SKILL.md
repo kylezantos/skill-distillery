@@ -52,6 +52,8 @@ These apply to everything skill-distillery does:
 
 8. **Gotchas are the highest-signal content** — The most valuable part of any skill is where Claude typically fails. Every skill should have a dedicated gotchas section documenting specific failure points with "don't do X because Y" structure. Gotchas come from anticipating Claude's failure modes, not theoretical anti-patterns.
 
+9. **Publication-ready by default** — Every skill gets a README.md assuming it may be published on GitHub. After building, offer to publish via `npx skills add` (the skills.sh ecosystem). Ask about target agents early — Claude Code only vs. universal — since it shapes how features like AskUserQuestion are implemented.
+
 ---
 
 ## Research Protocol

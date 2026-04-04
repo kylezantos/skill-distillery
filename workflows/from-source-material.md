@@ -130,6 +130,19 @@ Otherwise ask: "Is this for personal use, your team, or public distribution?"
 - **Medium** — Needs 1-3 reference files for depth
 - **Complex** — Multiple workflows + references + maybe templates
 
+### Question 6: Target Agents
+
+"Where will this skill be used?"
+
+- **Claude Code only** — Personal/team use, can use all Claude Code features (AskUserQuestion, Agent tool, allowed-tools, etc.) without fallbacks
+- **Claude Code primary, others welcome** (recommended for public skills) — Build for Claude Code but include plain-text fallbacks so other agents (Cursor, Codex, Kimi CLI, etc.) can use it
+- **Universal** — Must work equally well across all agents. No Claude Code-specific features — use action-oriented language throughout, no AskUserQuestion, no Agent tool references
+
+This answer shapes the entire build:
+- **Claude Code only:** Use AskUserQuestion freely, reference specific tools, use `allowed-tools` and `context: fork` without concern
+- **Claude Code primary:** Use AskUserQuestion with plain-text fallbacks, action-oriented language for instructions, `allowed-tools` is fine (ignored by other agents)
+- **Universal:** Plain-text questions only, no tool-name references, no agent-specific features
+
 ### Research Gate
 
 If the skill involves external APIs, libraries, or domains where best practices shift fast:
@@ -246,7 +259,33 @@ Present:
 
 ---
 
-## Step 9: Independent Review (Optional)
+## Step 9: Generate README
+
+Every skill gets a README.md — assume it may be published on GitHub.
+
+Create `README.md` alongside SKILL.md with:
+
+1. **Skill name** as heading
+2. **Install command** prominently displayed:
+   ```
+   npx skills add <owner/repo>
+   ```
+   Use a placeholder (`owner/repo-name`) if not yet published. Update later if the user publishes.
+3. **What it does** — 2-3 sentences explaining the skill's purpose
+4. **Who it's for** — target audience and common use cases
+5. **Usage examples** — invocation commands (`/skill-name`, `/skill-name argument`)
+6. **What's inside** — file tree showing SKILL.md + references
+7. **Compatibility** — based on the target agent answer from Step 3:
+   - Claude Code only: "Built for Claude Code."
+   - Claude Code primary: "Built for Claude Code. Degrades gracefully on other agents (Cursor, Codex, Kimi CLI, etc.)."
+   - Universal: "Works across all coding agents."
+8. **License** — MIT unless user specifies otherwise
+
+Keep the README concise — under 100 lines. It's a landing page, not documentation.
+
+---
+
+## Step 10: Independent Review (Optional)
 
 After validation, offer a fresh-eyes review from an independent sub-agent. This catches blind spots the builder develops from being too close to the work.
 
@@ -302,16 +341,47 @@ Implement selected fixes, then confirm what changed.
 
 ---
 
+## Step 11: Publication (Optional)
+
+After the skill is complete, offer to publish it for `npx skills` installation.
+
+> Want to publish this skill to GitHub so anyone can install it with `npx skills add`?
+
+If AskUserQuestion is available:
+- **Yes, create a GitHub repo** — Create a public repo, push the skill files, and update the README with the real install command
+- **No, keep it local** — Skill stays in the local skills directory
+
+If the user opts in:
+
+1. Create a public GitHub repo via `gh repo create <skill-name> --public`
+2. Copy all skill files (SKILL.md, references/, README.md) into a temp directory
+3. Initialize git, commit, and push
+4. Update the README.md install command from placeholder to the real `owner/repo`
+5. Present the repo URL and install command:
+
+> Published at: https://github.com/<owner>/<repo>
+>
+> Anyone can install with:
+> ```
+> npx skills add <owner>/<repo>
+> ```
+>
+> It will auto-appear on skills.sh once people start installing it.
+
+---
+
 ## Success Criteria
 
 This workflow is complete when:
 - [ ] Source material read and understood
 - [ ] Synthesis validated by user
-- [ ] Strategy decisions made interactively
+- [ ] Strategy decisions made interactively (including target agents)
 - [ ] Architecture proposed and approved
 - [ ] All files created following official spec
 - [ ] Gotchas section reviewed and populated with real failure modes
 - [ ] Quality checklist passed
-- [ ] Cross-agent compatibility reviewed
+- [ ] Cross-agent compatibility reviewed (informed by target agent choice)
+- [ ] README.md generated
 - [ ] Independent review offered (and completed if accepted)
+- [ ] Publication offered (and completed if accepted)
 - [ ] User can invoke the skill and it works as designed
