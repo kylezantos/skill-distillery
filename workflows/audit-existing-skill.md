@@ -1,6 +1,6 @@
 # Workflow: Audit Existing Skill
 
-Run an existing skill through the full skill-distillery framework. Six evaluation lenses (gotchas first), rated assessment, prioritized improvements.
+Run an existing skill through the full skill-distillery framework. Seven evaluation lenses (rigor/evals and gotchas first), rated assessment, prioritized improvements.
 
 ## Required Reading
 
@@ -10,7 +10,8 @@ Read ALL reference files before proceeding:
 3. `references/architecture-decisions.md`
 4. `references/interactive-design-patterns.md`
 5. `references/quality-checklist.md`
-6. `references/cross-agent-compatibility.md`
+6. `references/evaluation-patterns.md`
+7. `references/cross-agent-compatibility.md`
 
 ---
 
@@ -62,7 +63,28 @@ This calibrates the audit tone: your own skill gets constructive suggestions, an
 
 ---
 
-## Step 2: Gotchas Review (Highest Priority)
+## Step 2: Rigor & Evaluation Review
+
+Evaluate whether the skill's artifact count and testing depth match its likely audience.
+
+**Questions to assess:**
+- Is the intended lane clear: Quick Personal, Team Internal, or Public Polished?
+- Does the skill include the right amount of supporting material for that lane?
+- Are research notes and rationale kept out of runtime instructions?
+- For Quick Personal skills: are 1-3 smoke prompts captured or easy to infer?
+- For Team Internal skills: are trigger, non-trigger, representative, and incomplete-context evals present?
+- For Public Polished skills: is there a full eval pack, fresh-agent checklist, README, and compatibility review?
+- Does the skill overfit to publication polish when it is clearly personal?
+
+**Rating:**
+- **Right-sized** — Lane is clear, artifacts and evals match the audience
+- **Under-tested** — Runtime may be good, but evals/readiness are thin for the claimed audience
+- **Overbuilt** — Too much ceremony or verbosity for the actual use case
+- **Unclear** — Audience and validation expectations are not discernible
+
+---
+
+## Step 3: Gotchas Review (Highest Priority)
 
 The most valuable content in any skill. Evaluate this first.
 
@@ -81,7 +103,7 @@ The most valuable content in any skill. Evaluate this first.
 
 ---
 
-## Step 3: Synthesis Quality Review
+## Step 4: Synthesis Quality Review
 
 Evaluate the skill's intellectual foundation.
 
@@ -100,7 +122,7 @@ Evaluate the skill's intellectual foundation.
 
 ---
 
-## Step 4: Architecture Review
+## Step 5: Architecture Review
 
 Evaluate the file structure.
 
@@ -119,7 +141,7 @@ Evaluate the file structure.
 
 ---
 
-## Step 5: Interactive Design Review
+## Step 6: Interactive Design Review
 
 Evaluate how the skill handles user interaction.
 
@@ -141,7 +163,7 @@ Evaluate how the skill handles user interaction.
 
 ---
 
-## Step 6: Spec Compliance Review
+## Step 7: Spec Compliance Review
 
 Evaluate against the official specification.
 
@@ -164,7 +186,7 @@ Evaluate against the official specification.
 
 ---
 
-## Step 7: Cross-Agent Compatibility Review
+## Step 8: Cross-Agent Compatibility Review
 
 Evaluate portability across AI coding agents.
 
@@ -183,7 +205,7 @@ Evaluate portability across AI coding agents.
 
 ---
 
-## Step 8: Present Full Assessment
+## Step 9: Present Full Assessment
 
 Format the results:
 
@@ -195,6 +217,7 @@ Files: [count] | Lines: [total] | Structure: [type]
 ┌─────────────────────────────┬────────────────────┐
 │ Lens                        │ Rating             │
 ├─────────────────────────────┼────────────────────┤
+│ Rigor & Evaluation          │ [rating]           │
 │ Gotchas                     │ [rating]           │
 │ Synthesis Quality           │ [rating]           │
 │ Architecture                │ [rating]           │
@@ -225,7 +248,7 @@ PRIORITY IMPROVEMENTS:
 
 ---
 
-## Step 9: Implement Improvements
+## Step 10: Implement Improvements
 
 Present improvements as a selectable list.
 
@@ -247,7 +270,7 @@ Otherwise: "Which improvements would you like me to implement? List the numbers.
 
 ---
 
-## Step 10: Final Report
+## Step 11: Final Report
 
 After implementing selected improvements:
 
@@ -273,7 +296,7 @@ Remaining Recommendations:
 This workflow is complete when:
 - [ ] All skill files read and inventoried
 - [ ] Audit context understood (user built it, plugin, evaluating)
-- [ ] All 6 lenses evaluated with ratings (gotchas first)
+- [ ] All 7 lenses evaluated with ratings (rigor/evals and gotchas first)
 - [ ] Prioritized improvements presented
 - [ ] User selected which improvements to implement
 - [ ] Selected improvements implemented and verified

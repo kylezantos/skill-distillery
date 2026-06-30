@@ -7,6 +7,7 @@ User describes what they want the skill to accomplish. Brainstorm if vague, prop
 Read these reference files before proceeding:
 1. `references/interactive-design-patterns.md`
 2. `references/architecture-decisions.md`
+3. `references/evaluation-patterns.md`
 
 ---
 
@@ -106,27 +107,31 @@ Follow the Research Protocol from SKILL.md:
 
 ---
 
-## Step 3-11: Convergent Process
+## Step 3-13: Convergent Process
 
 From here, follow the same process as the source-material workflow:
 
-**Step 3: Skill Strategy** — Interactive decisions about audience, invocation, interactivity, modes, complexity, and target agents. See `workflows/from-source-material.md` Step 3.
+**Step 3: Skill Strategy** — Choose the rigor lane, then make interactive decisions about invocation, interactivity, modes, complexity, and target agents. See `workflows/from-source-material.md` Step 3.
 
-**Step 4: Architecture Proposal** — Propose exact file structure with rationale. Wait for approval. See `workflows/from-source-material.md` Step 4.
+**Step 4: Evaluation Plan** — Define smoke prompts or an eval pack based on the lane. See `workflows/from-source-material.md` Step 4.
 
-**Step 5: Build** — Create all files following official spec. See `workflows/from-source-material.md` Step 5.
+**Step 5: Architecture Proposal** — Propose exact file structure with rationale. Wait for approval. See `workflows/from-source-material.md` Step 5.
 
-**Step 6: Gotchas Review** — Ensure gotchas section is populated with real Claude failure modes. See `workflows/from-source-material.md` Step 6.
+**Step 6: Build** — Create all files following official spec. See `workflows/from-source-material.md` Step 6.
 
-**Step 7: Validate** — Run quality checklist (gotchas first). See `workflows/from-source-material.md` Step 7.
+**Step 7: Gotchas Review** — Ensure gotchas section is populated with real Claude failure modes. See `workflows/from-source-material.md` Step 7.
 
-**Step 8: Cross-Agent Compatibility Review** — Evaluate cross-agent support, informed by target agent choice. See `workflows/from-source-material.md` Step 8.
+**Step 8: Validate** — Run quality checklist. See `workflows/from-source-material.md` Step 8.
 
-**Step 9: Generate README** — Create a publication-ready README.md with install command and skill overview. See `workflows/from-source-material.md` Step 9.
+**Step 9: Eval & Smoke Test Review** — Run or simulate the planned checks. See `workflows/from-source-material.md` Step 9.
 
-**Step 10: Independent Review (Optional)** — Offer fresh-eyes review from an independent sub-agent. See `workflows/from-source-material.md` Step 10.
+**Step 10: Cross-Agent Compatibility Review** — Evaluate cross-agent support when the lane or target agents require it. See `workflows/from-source-material.md` Step 10.
 
-**Step 11: Publication (Optional)** — Offer to publish to GitHub for `npx skills add` installation. See `workflows/from-source-material.md` Step 11.
+**Step 11: Generate README** — Create a README only when the lane requires it or the user requests it. See `workflows/from-source-material.md` Step 11.
+
+**Step 12: Independent Review (Optional)** — Offer fresh-eyes review when the lane requires or warrants it. See `workflows/from-source-material.md` Step 12.
+
+**Step 13: Publication (Optional)** — Offer publication for public/publishable skills. See `workflows/from-source-material.md` Step 13.
 
 ---
 
@@ -135,12 +140,15 @@ From here, follow the same process as the source-material workflow:
 This workflow is complete when:
 - [ ] User's intent clearly understood (via detailed description or brainstorming)
 - [ ] Research done if external dependencies involved
-- [ ] Strategy decisions made interactively (including target agents)
+- [ ] Rigor lane selected
+- [ ] Strategy decisions made interactively
+- [ ] Evaluation plan matches the lane
 - [ ] Architecture proposed and approved
 - [ ] All files created following official spec
 - [ ] Gotchas section reviewed and populated
 - [ ] Quality checklist passed
-- [ ] Cross-agent compatibility reviewed
-- [ ] README.md generated
-- [ ] Independent review offered (and completed if accepted)
-- [ ] Publication offered (and completed if accepted)
+- [ ] Eval or smoke test review completed at the chosen depth
+- [ ] Cross-agent compatibility reviewed when lane/target agents require it
+- [ ] README.md generated when lane requires it
+- [ ] Independent review offered when lane requires or warrants it
+- [ ] Publication offered only for public/publishable skills
