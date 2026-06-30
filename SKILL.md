@@ -52,7 +52,21 @@ These apply to everything skill-distillery does:
 
 8. **Gotchas are the highest-signal content** — The most valuable part of any skill is where Claude typically fails. Every skill should have a dedicated gotchas section documenting specific failure points with "don't do X because Y" structure. Gotchas come from anticipating Claude's failure modes, not theoretical anti-patterns.
 
-9. **Publication-ready by default** — Every skill gets a README.md assuming it may be published on GitHub. After building, offer to publish via `npx skills add` (the skills.sh ecosystem). Ask about target agents early — Claude Code only vs. universal — since it shapes how features like AskUserQuestion are implemented.
+9. **Right-sized rigor by audience** — Quick personal skills stay lean; team skills get enough tests to share safely; public skills require evals, fresh-agent validation, and README/publication polish. Ask about target agents early when the skill may be shared, since Claude-only vs. universal support shapes tool and interaction choices.
+
+---
+
+## Rigor Lanes
+
+Choose a lane early and let it control investigation depth, artifact count, and validation:
+
+| Lane | Use When | Default Output | Validation |
+|------|----------|----------------|------------|
+| Quick Personal | The skill is for one high-context author | Concise `SKILL.md`; optional notes | 1-3 smoke prompts |
+| Team Internal | The skill will be reused by teammates or multiple agents | `SKILL.md` plus focused references; README optional | Trigger/non-trigger prompts plus representative tasks |
+| Public Polished | The skill is meant to be published or presented as a polished artifact | `SKILL.md`, README, eval pack, progressive references | Eval pack, fresh-agent test, compatibility review |
+
+Thorough investigation is still valuable for every lane. The difference is where it lives: research notes and rationale inform the distillation, while only execution-critical instructions belong in runtime skill files.
 
 ---
 
@@ -141,8 +155,9 @@ All supporting knowledge in `references/`:
 | [architecture-decisions.md](references/architecture-decisions.md) | Simple vs. router, when to use each file type | Architecture proposal step (all workflows) |
 | [interactive-design-patterns.md](references/interactive-design-patterns.md) | Discovery, modes, wait gates, AskUserQuestion | Strategy step and audit workflow |
 | [quality-checklist.md](references/quality-checklist.md) | Validation checklist | Validate step (all workflows) |
+| [evaluation-patterns.md](references/evaluation-patterns.md) | Rigor lanes and eval pack design | Before planning validation |
 | [cross-agent-compatibility.md](references/cross-agent-compatibility.md) | Cross-agent review guide | Cross-agent review step (all workflows) |
-| [independent-review-brief.md](references/independent-review-brief.md) | Pre-baked instructions for independent review sub-agent | Step 9 (optional, all build workflows) |
+| [independent-review-brief.md](references/independent-review-brief.md) | Pre-baked instructions for independent review sub-agent | Optional review step in build workflows |
 
 ## Workflow Index
 
@@ -151,7 +166,7 @@ All supporting knowledge in `references/`:
 | [from-source-material.md](workflows/from-source-material.md) | Article/talk/framework → skill (flagship workflow) |
 | [from-description.md](workflows/from-description.md) | Blank slate → brainstorm → skill |
 | [from-recent-work.md](workflows/from-recent-work.md) | Capture AI process as reusable skill |
-| [audit-existing-skill.md](workflows/audit-existing-skill.md) | Full-framework audit with 6 evaluation lenses |
+| [audit-existing-skill.md](workflows/audit-existing-skill.md) | Full-framework audit with 7 evaluation lenses |
 | [add-component.md](workflows/add-component.md) | Add reference/workflow/script/template to existing skill |
 
 ## Templates
@@ -162,3 +177,4 @@ Ready-to-copy starting points in `templates/`:
 |----------|----------|
 | [simple-skill.md](templates/simple-skill.md) | Single-workflow skills under 200 lines |
 | [router-skill.md](templates/router-skill.md) | Multi-workflow skills with shared principles |
+| [eval-pack.md](templates/eval-pack.md) | Team Internal or Public Polished eval packs |

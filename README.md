@@ -12,7 +12,7 @@ Skill-distillery is a skill that creates skills. It works from four entry points
 
 **From recent work** (`/skill-distillery capture`) — Just did something with AI and want to save the process? It extracts the repeatable workflow, decision points, and gotchas, then packages them as a reusable skill.
 
-**Audit an existing skill** (`/skill-distillery audit ~/.claude/skills/my-skill`) — Runs any skill through a five-lens evaluation framework: synthesis quality, architecture, interactive design, spec compliance, and cross-agent compatibility. Produces a rated assessment with prioritized improvements.
+**Audit an existing skill** (`/skill-distillery audit ~/.claude/skills/my-skill`) — Runs any skill through a seven-lens evaluation framework: rigor and evals, gotchas, synthesis quality, architecture, interactive design, spec compliance, and cross-agent compatibility. Produces a rated assessment with prioritized improvements.
 
 ## The approach
 
@@ -20,7 +20,13 @@ Most skill creators assume you already know what you want to build. Skill-distil
 
 A 5,000-word article doesn't become a skill by restructuring paragraphs into SKILL.md format. It becomes a skill when you extract the 5 principles that make the approach work, the mental model that organizes the domain, and the decision heuristics someone needs while doing the work. Then you design an interactive architecture around those extracted elements.
 
-The workflow is collaborative: extract → validate → strategize → propose architecture → build. Every phase has a checkpoint where you confirm before proceeding. The skill suggests interactive patterns from proven skills (discovery phases, mode detection, conditional loading, wait gates) as opinionated defaults you can override.
+The workflow is collaborative: extract → validate → choose a rigor lane → plan evals → propose architecture → build. Every phase has a checkpoint where you confirm before proceeding. The skill suggests interactive patterns from proven skills (discovery phases, mode detection, conditional loading, wait gates) as opinionated defaults you can override.
+
+Skill-distillery now right-sizes the output for three lanes:
+
+- **Quick Personal** — Lean `SKILL.md`, 1-3 smoke prompts, no README or publication prep by default
+- **Team Internal** — Shared workflow with enough evals and documentation for safe reuse
+- **Public Polished** — README, eval pack, fresh-agent test, and compatibility review
 
 ## Best experience on Claude Code
 
@@ -88,7 +94,7 @@ skill-distillery/
 │   ├── from-source-material.md           # Article → skill (flagship)
 │   ├── from-description.md               # Idea → skill
 │   ├── from-recent-work.md               # Process → skill
-│   ├── audit-existing-skill.md           # 5-lens audit framework
+│   ├── audit-existing-skill.md           # 7-lens audit framework
 │   └── add-component.md                  # Extend existing skills
 ├── references/
 │   ├── official-spec.md                  # 2026 skill specification
@@ -96,9 +102,12 @@ skill-distillery/
 │   ├── architecture-decisions.md         # When to use simple vs. router
 │   ├── interactive-design-patterns.md    # Discovery, modes, wait gates
 │   ├── quality-checklist.md              # Validation checklist
+│   ├── evaluation-patterns.md            # Rigor lanes and eval packs
+│   ├── independent-review-brief.md       # Fresh-eyes review prompt
 │   └── cross-agent-compatibility.md      # Cross-agent portability guide
 └── templates/
     ├── simple-skill.md                   # Single-file template
+    ├── eval-pack.md                      # Team/public eval template
     └── router-skill.md                   # Multi-file template
 ```
 

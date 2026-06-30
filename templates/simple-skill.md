@@ -1,6 +1,6 @@
 # Simple Skill Template
 
-Use this template for single-workflow skills under 200 lines. Copy and customize.
+Use this template for single-workflow skills. Target under 150 lines for Quick Personal skills and under 200 lines for shared simple skills. Copy, customize, and delete anything that is not needed at runtime.
 
 ```markdown
 ---
@@ -12,7 +12,7 @@ allowed-tools: Read, Bash
 
 # {{Skill Display Name}}
 
-{{1-2 sentence philosophy or core insight. What mental model does this skill operate from?}}
+{{1-2 sentence operational premise. What should the agent remember while doing the work?}}
 
 ## Quick Start
 
@@ -22,59 +22,33 @@ allowed-tools: Read, Bash
 
 ---
 
-## How This Skill Thinks
+## Core Checks
 
-{{3-5 core principles or mental filters. These should be operational — things you actually check while doing the work, not abstract values.}}
+{{2-4 operational checks. These are things the agent actively verifies, not background philosophy.}}
 
-1. **{{Principle 1}}** — {{Brief explanation}}
-2. **{{Principle 2}}** — {{Brief explanation}}
-3. **{{Principle 3}}** — {{Brief explanation}}
-
----
-
-## Choose Your Mode
-
-{{If the skill has modes, present them. If not, delete this section.}}
-
-If the user specifies a mode, go directly to it. If not, ask:
-
-> I can help two ways:
-> 1. **{{Mode A}}** — {{Description}}
-> 2. **{{Mode B}}** — {{Description}}
->
-> Which one?
+1. **{{Check 1}}** — {{What to verify}}
+2. **{{Check 2}}** — {{What to verify}}
+3. **{{Check 3}}** — {{What to verify}}
 
 ---
 
-## Mode 1: {{Mode A Name}}
+## Workflow
 
-### Phase 1: {{Understanding / Discovery}}
-
-{{Ask 2-3 questions to understand context. Don't proceed without context.}}
-
-### Phase 2: {{Generate / Execute}}
-
-{{Core workflow steps.}}
-
-### Phase 3: {{Review / Stress-Test}}
-
-{{Validate output. Present to user for feedback.}}
+1. **{{Intake}}** — {{What to read or ask. Ask only the minimum needed questions.}}
+2. **{{Execute}}** — {{Core steps.}}
+3. **{{Verify}}** — {{How to check the result before responding.}}
+4. **{{Deliver}}** — {{Output shape.}}
 
 ---
 
-## Mode 2: {{Mode B Name}}
+## Optional Modes
 
-### Phase 1: {{Intake}}
+{{Delete this section unless the skill truly has distinct workflows. If modes are needed, route by user intent first and ask only when ambiguous.}}
 
-{{Mode-specific intake.}}
-
-### Phase 2: {{Diagnose / Analyze}}
-
-{{Core workflow steps.}}
-
-### Phase 3: {{Prioritize / Deliver}}
-
-{{Structured output.}}
+| Signal | Mode | Do |
+|--------|------|----|
+| {{User asks for X}} | {{Mode A}} | {{Action}} |
+| {{User asks for Y}} | {{Mode B}} | {{Action}} |
 
 ---
 
@@ -90,14 +64,15 @@ Common failure points — where Claude gets this wrong:
 
 ## Working With Incomplete Information
 
-{{How the skill adapts when user doesn't have everything.}}
+{{Delete if obvious. Include only the minimum policy for missing inputs.}}
 
-For the complete {{reference material name}}, see [reference.md](reference.md).
+{{Optional: For deeper procedure, see [reference.md](reference.md).}}
 ```
 
 ## Customization Notes
 
 - **Delete unused sections** — If no modes needed, remove the mode selection and collapse into a single workflow
-- **Add wait gates** at discovery and architecture decision points
-- **Keep under 200 lines** — If it grows beyond that, consider the router template instead
+- **Keep research out** — Put rationale, raw notes, and eval prompts outside SKILL.md unless needed at runtime
+- **Add wait gates** only at genuine decision points
+- **Keep under the lane target** — <150 lines for Quick Personal, <200 for simple shared skills
 - **Description** should be under 1024 chars with specific trigger keywords

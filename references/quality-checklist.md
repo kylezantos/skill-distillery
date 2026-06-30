@@ -2,6 +2,19 @@
 
 Run through this checklist after building or auditing a skill. Items are grouped by category and ordered by impact.
 
+## Rigor Lane & Evaluation
+
+The skill should be as rigorous as its audience needs, and no more verbose than runtime execution requires.
+
+- [ ] Rigor lane is explicit: Quick Personal, Team Internal, or Public Polished
+- [ ] Artifact count matches the lane (no default README/publication prep for Quick Personal)
+- [ ] Investigation notes and rationale are not dumped into runtime instructions
+- [ ] Quick Personal: 1-3 smoke prompts captured or run
+- [ ] Team Internal: positive triggers, non-triggers, representative tasks, and incomplete-context evals are captured
+- [ ] Public Polished: full eval pack exists with edge cases, success signals, failure signals, and fresh-agent checklist
+- [ ] Public Polished: at least one positive trigger, representative task, and non-trigger have been tested or explicitly marked unavailable
+- [ ] README exists only when the lane requires it or the user requested it
+
 ## Gotchas (Highest Priority)
 
 The most valuable content in any skill. Gotchas document where Claude typically fails with this domain. Check these first.
@@ -26,7 +39,7 @@ The most valuable content in any skill. Gotchas document where Claude typically 
 
 ## Structure
 
-- [ ] SKILL.md under 500 lines (target: 200-300 for router skills)
+- [ ] SKILL.md under 500 lines (targets: <150 Quick Personal, <200 simple shared, 200-300 router)
 - [ ] All supporting files one level deep from SKILL.md
 - [ ] No nested reference chains (SKILL.md → ref.md → detail.md)
 - [ ] Every file referenced in SKILL.md actually exists
@@ -58,6 +71,7 @@ The most valuable content in any skill. Gotchas document where Claude typically 
 
 - [ ] Invocable via `/skill-name` and produces correct behavior
 - [ ] Auto-triggering works when description keywords match user input
+- [ ] Non-trigger prompts do not activate or over-apply the skill
 - [ ] $ARGUMENTS are handled correctly (or appended if not referenced)
 - [ ] Skill works when invoked with no arguments (handles gracefully)
 
